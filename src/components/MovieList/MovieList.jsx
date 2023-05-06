@@ -7,7 +7,7 @@ const MovieList = ({ movies }) => {
         const { id, title, name } = movie;
         return (
           <li key={id}>
-            <Link to={`movies/${id}`}>{title || name}</Link>
+            <Link to={`/movies/${id}`}>{title || name}</Link>
           </li>
         );
       })}

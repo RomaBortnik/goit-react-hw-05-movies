@@ -34,7 +34,7 @@ const Reviews = () => {
           movieReviews.map(el => {
             return (
               <ReviewsItem key={el.id}>
-                <h3>{el.author}</h3>
+                <h3>Author: {el.author}</h3>
                 <p>{el.content}</p>
               </ReviewsItem>
             );

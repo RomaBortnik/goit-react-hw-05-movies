@@ -15,7 +15,11 @@ const Cast = () => {
     const getMovieCast = async () => {
       try {
         const data = await fetchMovieDetails(movieId, 'credits');
-        setMovieCast(data.cast);
+        if (data.cast.length === 0) {
+          return toast.error('There are no information about this');
+        } else {
+          setMovieCast(data.cast);
+        }
       } catch (error) {
         return toast.error('Something went wrong. Please try again.');
       }
