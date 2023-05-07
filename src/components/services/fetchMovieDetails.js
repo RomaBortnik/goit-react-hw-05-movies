@@ -8,6 +8,7 @@ const fetchMovieDetails = async (id, value) => {
         `${BASE_URL}/movie/${id}/${value}?api_key=${PERSONAL_KEY}`
       )
     : await axios.get(`${BASE_URL}/movie/${id}?api_key=${PERSONAL_KEY}`);
+
   return response.data;
 };
 

@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import { AiOutlineSearch } from 'react-icons/ai';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

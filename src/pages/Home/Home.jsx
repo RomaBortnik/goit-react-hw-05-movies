@@ -11,6 +11,7 @@ const Home = () => {
     const getPopularMovies = async () => {
       try {
         const data = await fetchPopularMovies();
+        console.log(data.results);
         setMovies(data.results);
       } catch (error) {
         return toast.error('Something went wrong. Please try again.');

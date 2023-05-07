@@ -1,17 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Home from 'pages/Home';
-import Movies from 'pages/Movie';
+import Movies from 'pages/Movies';
 import MovieDetails from 'pages/MovieDetails';
-
-// import fetchPopularMovies from './services/fetchPopularMovies';
-// import fetchMoviesByQuery from './services/fetchMoviesByQuery';
-import fetchMovieDetails from './services/fetchMovieDetails';
 import SharedLayout from './SharedLayout';
 import Cast from './Cast';
 import Reviews from './Reviews';
-
-fetchMovieDetails(100, 'reviews');
 
 export const App = () => {
   return (

@@ -16,7 +16,7 @@ const Cast = () => {
       try {
         const data = await fetchMovieDetails(movieId, 'credits');
         if (data.cast.length === 0) {
-          return toast.error('There are no information about this');
+          return toast.error('There are no information about this.');
         } else {
           setMovieCast(data.cast);
         }
@@ -29,9 +29,9 @@ const Cast = () => {
 
   return (
     <>
-      <ul>
-        {movieCast.length !== 0 &&
-          movieCast.map(el => {
+      {movieCast.length !== 0 && (
+        <ul>
+          {movieCast.map(el => {
             return (
               <CastItem key={el.cast_id}>
                 <CastImage
@@ -42,7 +42,8 @@ const Cast = () => {
               </CastItem>
             );
           })}
-      </ul>
+        </ul>
+      )}
       <ToastContainer autoClose={2000} theme="dark"></ToastContainer>
     </>
   );
