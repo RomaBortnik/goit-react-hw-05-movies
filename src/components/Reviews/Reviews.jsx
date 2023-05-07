@@ -26,7 +26,6 @@ const Reviews = () => {
     getMovieReviews();
   }, [movieId]);
 
-  console.log(movieReviews);
   return (
     <>
       <ul>

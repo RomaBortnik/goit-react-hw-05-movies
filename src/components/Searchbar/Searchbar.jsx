@@ -1,8 +1,8 @@
-import { Formik } from 'formik';
-import { AiOutlineSearch } from 'react-icons/ai';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Formik } from 'formik';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 import {
   SearchbarForm,
@@ -48,8 +48,8 @@ const Searchbar = ({ onSubmit }) => {
   );
 };
 
-// Searchbar.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default Searchbar;

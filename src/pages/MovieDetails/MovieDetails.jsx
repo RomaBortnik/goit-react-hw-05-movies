@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import fetchMovieDetails from 'components/services/fetchMovieDetails';
 import MovieInfo from 'components/MovieInfo';
+import Loader from 'components/Loader';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -38,7 +39,9 @@ const MovieDetails = () => {
             </li>
           </ul>
           <hr></hr>
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </>
       )}
       <ToastContainer autoClose={2000} theme="dark"></ToastContainer>

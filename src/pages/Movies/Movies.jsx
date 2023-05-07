@@ -1,11 +1,12 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { lazy } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import fetchMoviesByQuery from 'components/services/fetchMoviesByQuery';
 
 import Searchbar from 'components/Searchbar';
-import MovieList from 'components/MovieList';
+const MovieList = lazy(() => import('components/MovieList'));
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -16,8 +17,6 @@ const Movies = () => {
     const nextParams = query !== '' ? { query } : {};
     setSearchParams(nextParams);
   };
-
-  console.log(movieName);
 
   useEffect(() => {
     if (movieName === '') {

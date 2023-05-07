@@ -7,7 +7,6 @@ const fetchMoviesByQuery = async query => {
     `${BASE_URL}search/movie?api_key=${PERSONAL_KEY}&query=${query}
 `
   );
-  console.log(response.data);
   return response.data;
 };
 

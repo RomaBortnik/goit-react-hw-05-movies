@@ -1,7 +1,8 @@
-import MovieList from 'components/MovieList';
+import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect, useState } from 'react';
+
+import MovieList from 'components/MovieList';
 import fetchPopularMovies from 'components/services/fetchPopularMovies';
 
 const Home = () => {
@@ -11,7 +12,6 @@ const Home = () => {
     const getPopularMovies = async () => {
       try {
         const data = await fetchPopularMovies();
-        console.log(data.results);
         setMovies(data.results);
       } catch (error) {
         return toast.error('Something went wrong. Please try again.');
