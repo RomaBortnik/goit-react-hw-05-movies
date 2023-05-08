@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import fetchMovieDetails from 'components/services/fetchMovieDetails';
 import { IMAGES_BASE_URL } from 'components/MovieInfo/MovieInfo';
 import { CastItem, CastImage, CastName } from './Cast.styled';
+import defaultPicture from '../../pictures/defaultPicture.png';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -35,7 +36,11 @@ const Cast = () => {
             return (
               <CastItem key={el.cast_id}>
                 <CastImage
-                  src={IMAGES_BASE_URL + el.profile_path}
+                  src={
+                    el.profile_path
+                      ? IMAGES_BASE_URL + el.profile_path
+                      : defaultPicture
+                  }
                   alt={el.name}
                 />
                 <CastName>{el.name}</CastName>

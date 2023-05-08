@@ -8,6 +8,7 @@ export const CastItem = styled.li`
 
 export const CastImage = styled.img`
   margin-bottom: 8px;
+  width: 200px;
 `;
 export const CastName = styled.p`
   font-size: 18px;

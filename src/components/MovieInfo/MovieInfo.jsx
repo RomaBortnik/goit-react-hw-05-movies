@@ -1,11 +1,13 @@
 import { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import {
   MovieContainer,
   MovieInfoContainer,
   BackButton,
 } from './MovieInfo.styled';
+import defaultMoviePicture from '../../pictures/defaultMoviePicture.jpg';
 
 export const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/w200/';
 
@@ -18,7 +20,13 @@ const MovieInfo = ({ movie }) => {
     <>
       <BackButton to={backLinkHref.current}>Go back</BackButton>
       <MovieContainer>
-        <img src={IMAGES_BASE_URL + poster_path} alt={title} />
+        <img
+          width="200"
+          src={
+            poster_path ? IMAGES_BASE_URL + poster_path : defaultMoviePicture
+          }
+          alt={title}
+        />
         <MovieInfoContainer>
           <h1>{title}</h1>
           <p>Vote average: {vote_average}</p>
@@ -30,6 +38,20 @@ const MovieInfo = ({ movie }) => {
       </MovieContainer>
     </>
   );
+};
+
+MovieInfo.propTypes = {
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      })
+    ),
+  }).isRequired,
 };
 
 export default MovieInfo;
